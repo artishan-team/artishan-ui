@@ -9,16 +9,18 @@
  * Main module of the application.
  */
 angular
-  .module('artishanUiApp', [
+  .module('artishanApp', [
     'ngAnimate',
     'ngAria',
     'ngCookies',
     'ngMessages',
     'ngResource',
     'ngRoute',
-    'ui.bootstrap',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'chart.js',
+    'ui.bootstrap',
+    'ui.grid'
   ])
   .config(function ($routeProvider) {
     $routeProvider

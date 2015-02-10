@@ -49,3 +49,15 @@
     <br />Enter a negative number or 0 to stop the interval.
   </div>
 </div>
+
+<div id="grid1" ui-grid="{ data: myData }" class="grid"></div>
+
+
+<canvas id="line" class="chart chart-line" data="data"
+  labels="labels" legend="true" series="series"
+  click="onClick">
+</canvas>
+
+
+<canvas id="bar" class="chart chart-bar" data="data"
+  labels="labels"></canvas>
