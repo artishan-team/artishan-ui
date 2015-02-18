@@ -8,10 +8,21 @@
  * Controller of the artishanUiApp
  */
 angular.module('artishanApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
+  .controller('MainCtrl', function ($rootScope, $scope) {
+    $rootScope.subNav = false;
+    $scope.slides = [
+      {
+        image: 'images/artishan.png',
+        text: 'Artishan UI 1'
+      },
+      {
+        image: 'images/artishan.png',
+        text: 'Artishan UI 2'
+      },
+      {
+        image: 'images/artishan.png',
+        text: 'Artishan UI 3'
+      }
     ];
+
   });

@@ -1,0 +1,41 @@
+<div class="btn-group">
+    <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'">Left</label>
+    <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'">Middle</label>
+    <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'">Right</label>
+</div>
+<ul>
+  <li data-match-route="/example/main">
+    <a href="#/example/main">
+      <i class="icon ion-android-apps" aria-hidden="true"></i><span>Main</span>
+    </a>
+  </li>
+  <li data-match-route="/example/icon">
+    <a href="#/example/icon">
+      <i class="icon ion-ios-albums-outline" aria-hidden="true"></i>Icon</span>
+    </a>
+  </li>
+  <li data-match-route="/example/panel">
+    <a href="#/example/panel">
+      <i class="icon ion-ios-albums-outline" aria-hidden="true"></i>Panel</span>
+    </a>
+  </li>
+</ul>
+<accordion close-others="oneAtATime">
+  <accordion-group heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+    This content is straight in the template.
+  </accordion-group>
+  <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+    {{group.content}}
+  </accordion-group>
+  <accordion-group heading="Dynamic Body Content">
+    <p>The body of the accordion group grows to fit the contents</p>
+      <button class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
+      <div ng-repeat="item in items">{{item}}</div>
+  </accordion-group>
+  <accordion-group is-open="status.open">
+      <accordion-heading>
+          I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+      </accordion-heading>
+      This is just some content to illustrate fancy headings.
+  </accordion-group>
+</accordion>

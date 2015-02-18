@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
     <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css" />
     <link rel="stylesheet" href="bower_components/isteven-angular-multiselect/angular-multi-select.css" />
+    <link rel="stylesheet" href="bower_components/ionicons/css/ionicons.css" />
+    <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -18,47 +20,43 @@
     <!-- endbuild -->
   </head>
   <body ng-app="artishanApp">
+
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
 
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-
-            <a class="navbar-brand" href="#/">Artishan</a>
-          </div>
-
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/">Contact</a></li>
-            </ul>
-          </div>
-        </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="NavbarCtrl">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" id="btn-menu" href="#/"><img class="logo" src="images/logo.png" alt="Artishan"></a>
       </div>
-    </div>
-
-    <div class="container">
-    <div ng-view=""></div>
-    </div>
-
-    <div class="footer">
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#/">Home</a></li>
+          <li><a href="#/about">About</a></li>
+          <li><a href="#/archive">Archive</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+         <li><a ng-click="login()">Sign in</a></li>
+         <li><a href="#">Sign up</a></li>
+       </ul>
+      </div><!--/.nav-collapse -->
+    </nav>
+    <artishan-nav class="artishan-nav" ng-include="'views/_navbar/main.html'"></artishan-nav>
+    <artishan-nav class="artishan-nav sub" ng-include="subNav"></artishan-nav>
+    <div id="ng-view" ng-view=""></div>
+    <!-- <div class="footer">
       <div class="container">
         <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
       </div>
-    </div>
+    </div> -->
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -90,6 +88,8 @@
     <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
     <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
     <script src="bower_components/isteven-angular-multiselect/angular-multi-select.js"></script>
+    <script src="bower_components/satellizer/satellizer.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -97,6 +97,17 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/navbar.js"></script>
+    <script src="scripts/controllers/_modal/login.js"></script>
+    <script src="scripts/directives/artishan-nav.js"></script>
+    <script src="scripts/directives/bugfix.js"></script>
+    <script src="scripts/controllers/example.js"></script>
+    <script src="scripts/controllers/deck.js"></script>
+    <script src="scripts/controllers/test.js"></script>
+    <script src="scripts/controllers/media.js"></script>
+    <script src="scripts/controllers/user.js"></script>
+    <script src="scripts/controllers/job.js"></script>
+    <script src="scripts/controllers/archive.js"></script>
     <!-- endbuild -->
 </body>
 </html>

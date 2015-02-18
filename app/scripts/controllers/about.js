@@ -8,7 +8,8 @@
  * Controller of the artishanUiApp
  */
 angular.module('artishanApp')
-.controller('AboutCtrl', function ($scope) {
+.controller('AboutCtrl', function ($rootScope, $scope) {
+  $rootScope.subNav = false;
   $scope.awesomeThings = [
     'HTML5 Boilerplate',
     'AngularJS',
@@ -59,6 +60,14 @@ angular.module('artishanApp')
   $scope.onClick = function (points, evt) {
     console.log(points, evt);
   };
+
+  // $nav.open({
+  //   templateUrl: 'views/navbar.html',
+  //   controller: 'NavbarCtrl',
+  //   placement: 'left',
+  //   size: 'sm',
+  //   backdrop: false
+  // });
 
   $scope.myData = [
       {

@@ -1,5 +1,10 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 
+/*
+ * Nanum Gothic (Korean) http://www.google.com/fonts/earlyaccess
+ */
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
 /* Bootstrpa  custom */
 $gray-darker:            #3E3F3A;
 $gray-dark:              #555555;
@@ -14,23 +19,22 @@ $brand-info:            #3498DB;
 $brand-warning:         #F39C12;
 $brand-danger:          #E74C3C;
 
-$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-family-serif:       Georgia, "Times New Roman", Times, serif;
+$font-family-sans-serif:  "Nanum Gothic", "Apple SD Gothic Neo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif:       "Nanum Gothic", "Apple SD Gothic Neo", Georgia, "Times New Roman", Times, serif;
 
-$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+$font-family-monospace:   "Nanum Gothic", "Apple SD Gothic Neo", Menlo, Monaco, Consolas, "Courier New", monospace;
 $font-family-base:        $font-family-sans-serif;
 
-$font-size-base:          12px;
+$font-size-base:          14px;
 
 $border-radius-base:        2px;
 $border-radius-large:       3px;
 $border-radius-small:       1px;
-$navbar-height:           40px;
+$navbar-height:           50px;
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
-
-
+@import "nav.scss";
 
 .browsehappy {
   margin: 0.2em 0;
@@ -99,7 +103,7 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 730px;
+    /* max-width: 730px; */
   }
 
   /* Remove the padding we set earlier */
@@ -119,10 +123,47 @@ body {
   }
 }
 
+/* Animete */
+.ng-enter,
+.ng-move{
+  animation: fadeInLeft .5s;
+}
+
+.ng-leave{
+  animation: fadeOutRight .5s;
+}
+
 /* BootstrapUI */
 .nav,
 .pagination,
 .carousel,
 .panel-title a {
   cursor: pointer;
+}
+
+/* Bootstrap custom */
+.navbar-brand {
+  padding: 7px 20px;
+}
+.container.container-sub{
+  margin-left: 350px;
+}
+/* Overied custom */
+.ng-asid.horizontal {
+  top: 40px;
+}
+
+/* Content */
+.logo{
+  height: 33px;
+}
+
+.container {
+  padding-top: 50px;
+}
+
+#mainCarousel {
+  height: 500px;
+  margin-bottom: 60px;
+  background: #333;
 }

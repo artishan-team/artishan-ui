@@ -18,7 +18,8 @@ module.exports = function (grunt) {
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
-    dist: 'dist'
+    dist: 'dist',
+    docs: 'docs'
   };
 
   // Define the configuration for all the tasks
@@ -106,6 +107,12 @@ module.exports = function (grunt) {
         options: {
           open: true,
           base: '<%= yeoman.dist %>'
+        }
+      },
+      docs: {
+        options: {
+          open: true,
+          base: '<%= yeoman.docs %>'
         }
       }
     },
@@ -404,7 +411,13 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    // ngDocs
+    ngdocs: {
+      all: ['<%= yeoman.app %>/scripts/**/*.js']
     }
+
   });
 
 
@@ -427,6 +440,11 @@ module.exports = function (grunt) {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
     grunt.task.run(['serve:' + target]);
   });
+
+  grunt.registerTask('docs', [
+    'ngdocs',
+    'connect:docs:keepalive'
+  ]);
 
   grunt.registerTask('test', [
     'clean:server',
