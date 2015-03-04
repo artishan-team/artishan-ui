@@ -1,18 +1,18 @@
 'use strict';
 
-describe('Service: nav', function () {
+describe('Service: api', function () {
 
   // load the service's module
   beforeEach(module('artishanApp'));
 
   // instantiate service
-  var nav;
-  beforeEach(inject(function (_nav_) {
-    nav = _nav_;
+  var api;
+  beforeEach(inject(function (_api_) {
+    api = _api_;
   }));
 
   it('should do something', function () {
-    expect(!!nav).toBe(true);
+    expect(!!api).toBe(true);
   });
 
 });

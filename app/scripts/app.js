@@ -21,9 +21,10 @@ angular
     'chart.js',
     'ui.bootstrap',
     'ui.grid',
-    'satellizer'
+    'satellizer',
+    'artishan.bespoke'
   ])
-  .config(function ($routeProvider, $authProvider) {
+  .config(function ($routeProvider, $authProvider, $apiProvider) {
 
     var authenticated = function ($q, $location, $auth) {
       var deferred = $q.defer();
@@ -36,7 +37,12 @@ angular
       return deferred.promise;
     };
 
+    $apiProvider.apiHost = 'http://localhost:3000';
+    // console.log($apiProvider);
+    // $apiProvider.getList();
     $authProvider.loginUrl = 'http://localhost:3000/auth/login';
+    $authProvider.signupUrl = 'http://localhost:3000/auth/register';
+    $authProvider.loginOnSignup = false;
     $authProvider.tokenName = 'accessToken';
 
     $routeProvider
@@ -79,6 +85,14 @@ angular
       })
       .when('/deck/list', {
         templateUrl: 'views/deck/list.html',
+        controller: 'DeckCtrl'
+      })
+      .when('/deck/:deckId/edit', {
+        templateUrl: 'views/deck/edit.html',
+        controller: 'DeckCtrl'
+      })
+      .when('/deck/:deckId/slideshow', {
+        templateUrl: 'views/deck/slideshow.html',
         controller: 'DeckCtrl'
       })
       .otherwise({

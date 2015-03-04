@@ -8,8 +8,24 @@
  * Controller of the artishanUiApp
  */
 angular.module('artishanApp')
-  .controller('MainCtrl', function ($rootScope, $scope) {
+  .controller('MainCtrl', [
+    '$rootScope',
+    '$scope',
+    'artishanApi.deck',
+    function ($rootScope, $scope, Deck) {
     $rootScope.subNav = false;
+    var deckList = Deck.deckList();
+
+
+    $scope.test = deckList;
+    console.log(deckList);
+    console.log(Deck.deckList({
+      deckId:'54dee2fd467dc0152156eccd'
+    }));
+    console.log(Deck.deckList({
+      deckId:'54dee2fd467dc0152156eccd',
+      action: 'slide'
+    }));
     $scope.slides = [
       {
         image: 'images/artishan.png',
@@ -25,4 +41,4 @@ angular.module('artishanApp')
       }
     ];
 
-  });
+  }]);

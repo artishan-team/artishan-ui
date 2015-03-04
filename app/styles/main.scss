@@ -124,15 +124,32 @@ body {
 }
 
 /* Animete */
-.ng-enter,
-.ng-move{
-  animation: fadeInLeft .5s;
+.artishan-nav.sub.ng-enter,
+.artishan-nav.sub.ng-move{
+  animation: fadeInRight .5s;
 }
 
-.ng-leave{
-  animation: fadeOutRight .5s;
+.artishan-nav.sub.ng-leave{
+  animation: fadeOutLeft .5s;
+}
+#ng-view{
+  display: block;
+  height: 100%;
+}
+#ng-view .ng-enter,
+#ng-view .ng-move{
+  animation: fadeIn .5s;
 }
 
+.alert.ng-enter,
+.alert.ng-move{
+  animation: fadeIn .5s;
+}
+/*
+.alert.ng-leave{
+  animation: fadeOut .5s;
+}
+ */
 /* BootstrapUI */
 .nav,
 .pagination,
@@ -147,6 +164,9 @@ body {
 }
 .container.container-sub{
   margin-left: 350px;
+}
+.modal{
+  background: black;
 }
 /* Overied custom */
 .ng-asid.horizontal {

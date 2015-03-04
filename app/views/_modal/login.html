@@ -3,6 +3,8 @@
 </div>
 <div class="modal-body">
   <form method="post" ng-submit="login()" name="loginForm">
+
+
     <div class="form-group has-feedback">
       <input class="form-control input-lg" type="text" name="email" ng-model="email" placeholder="Email" required autofocus>
       <span class="ion-at form-control-feedback"></span>
@@ -12,11 +14,15 @@
       <input class="form-control input-lg" type="password" name="password" ng-model="password" placeholder="Password" required>
       <span class="ion-key form-control-feedback"></span>
     </div>
-
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" dismissOnTimeout="10">{{alert.msg}}</alert>
     <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn-lg  btn-block btn-success">Log in</button>
   </form>
+
+  <button class="btn btn-lg  btn-block btn-warning" ng-click="cancel()">Cancel</button>
 </div>
+<!--
 <div class="modal-footer">
     <button class="btn btn-primary" ng-click="ok()">OK</button>
     <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
 </div>
+-->
